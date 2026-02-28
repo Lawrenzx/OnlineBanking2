@@ -17,43 +17,60 @@ namespace Loan
             Console.Write("Loan Amount: ");
             int loanInput = Convert.ToInt16(Console.ReadLine());
 
-            Console.Write("Choose a Loan Period (6, 12, 18, 24, 36 Months:");
+            Console.WriteLine("The Interest is 1.3%");
+
+            Console.Write("Choose a Loan Period (Maximum 25 Years):");
             int periodInput = Convert.ToInt16(Console.ReadLine());
 
-            Console.WriteLine("---------------------------------");
+            Console.WriteLine("--------------------------------------------------");
 
-            if (loanInput == 20000 && periodInput == 6 ||
-                loanInput == 20000 && periodInput == 12 ||
-                loanInput == 20000 && periodInput == 18 ||
-                loanInput == 20000 && periodInput == 24 ||
-                loanInput == 20000 && periodInput == 36)
+            if (loanInput == 20000 && periodInput <= 5 ||
+                loanInput == 20000 && periodInput <= 10||
+                loanInput == 20000 && periodInput <= 15 ||
+                loanInput == 20000 && periodInput <= 20 ||
+                loanInput == 20000 && periodInput <= 25 )
             {
+                double monthlyRate = 0.013 / 100 / 12;
+                int totalPayments = periodInput * 12;
+                double monthlyPay = loanInput * (monthlyRate * Math.Pow(1 + monthlyRate, totalPayments)) / (Math.Pow(1 + monthlyRate, totalPayments) - 1);
+                double payment = Math.Round(monthlyPay, 2);
+
                 Console.WriteLine("Total Loan Amount: " + loanInput);
-                Console.WriteLine("Loan Period: " + periodInput);
+                Console.WriteLine("Loan Period: " + periodInput + "Years");
                 Console.WriteLine("Interest Rate: 1.3%");
-                Console.WriteLine("Monthly Payment: ");
+                Console.WriteLine("Monthly Payment: " + payment);
             }
-            else if (loanInput <= 50000 && periodInput == 6 ||
-                loanInput <= 50000 && periodInput == 12 ||
-                loanInput <= 50000 && periodInput == 18 ||
-                loanInput <= 50000 && periodInput == 24 ||
-                loanInput <= 50000 && periodInput == 36)
+            else if (loanInput <= 50000 && periodInput <= 5 ||
+                loanInput <= 50000 && periodInput <= 10 ||
+                loanInput <= 50000 && periodInput <= 15 ||
+                loanInput <= 50000 && periodInput <= 20 ||
+                loanInput <= 50000 && periodInput <= 25)
             {
+                double monthlyRate = 0.013 / 100 / 12;
+                int totalPayments = periodInput * 12;
+                double monthlyPay = loanInput * (monthlyRate * Math.Pow(1 + monthlyRate, totalPayments)) / (Math.Pow(1 + monthlyRate, totalPayments) - 1);
+                double payment = Math.Round(monthlyPay, 2);
+
                 Console.WriteLine("Total Loan Amount: " + loanInput);
-                Console.WriteLine("Loan Period: " + periodInput);
+                Console.WriteLine("Loan Period: " + periodInput + "Years");
                 Console.WriteLine("Interest Rate: 1.3%");
-                Console.WriteLine("Monthly Payment: ");
+                Console.WriteLine("Monthly Payment: " + payment);
             }
-            else if (loanInput <= 100000 && periodInput == 6 ||
-                loanInput <= 100000 && periodInput == 12 ||
-                loanInput <= 100000 && periodInput == 18 ||
-                loanInput <= 100000 && periodInput == 24 ||
-                loanInput <= 100000 && periodInput == 36)
+            else if (loanInput <= 100000 && periodInput <= 5 ||
+                loanInput <= 100000 && periodInput <= 10 ||
+                loanInput <= 100000 && periodInput <= 15 ||
+                loanInput <= 100000 && periodInput <= 20 ||
+                loanInput <= 100000 && periodInput <= 25)
             {
+                double monthlyRate = 0.013 / 100 / 12;
+                int totalPayments = periodInput * 12;
+                double monthlyPay = loanInput * (monthlyRate * Math.Pow(1 + monthlyRate, totalPayments)) / (Math.Pow(1 + monthlyRate, totalPayments) - 1);
+                double payment = Math.Round(monthlyPay, 2);
+
                 Console.WriteLine("Total Loan Amount: " + loanInput);
-                Console.WriteLine("Loan Period: " + periodInput);
+                Console.WriteLine("Loan Period: " + periodInput + "Years");
                 Console.WriteLine("Interest Rate: 1.3%");
-                Console.WriteLine("Monthly Payment: ");
+                Console.WriteLine("Monthly Payment: " + payment);
             }
             else
             {
@@ -61,5 +78,6 @@ namespace Loan
 
             }
         }
+        
     }
 }
