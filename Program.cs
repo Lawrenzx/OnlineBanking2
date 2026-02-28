@@ -20,6 +20,8 @@ namespace Loan
             Console.Write("Choose a Loan Period (6, 12, 18, 24, 36 Months:");
             int periodInput = Convert.ToInt16(Console.ReadLine());
 
+            Console.WriteLine("---------------------------------");
+
             if (loanInput == 20000 && periodInput == 6 ||
                 loanInput == 20000 && periodInput == 12 ||
                 loanInput == 20000 && periodInput == 18 ||
