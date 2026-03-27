@@ -10,7 +10,7 @@ namespace OnlineBankingModels
     {
         public Guid LoanId { get; set; }
 
-        public double LoanAmount { get; set; }
+        public int LoanAmount { get; set; }
 
         public int LoanPeriod { get; set; }
 

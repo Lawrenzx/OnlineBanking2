@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using OnlineBankingDataService;
@@ -10,8 +11,10 @@ namespace OnlineBankingAppService
 {
     public class BankingBusiness
     {
-        BankingData bankingdata = new BankingData();
-        public BankingModel? CreateLoan(double loanAmount, int periodYears)
+        InMemoryData bankingdata = new InMemoryData();
+        DataServe datasev = new DataServe(new Data2_dbdata());
+        DataJson DataJson = new DataJson();
+        public BankingModel? CreateLoan(int loanAmount, int periodYears)
         {
             if (loanAmount < 20000 || loanAmount > 100000)
                 return null;
@@ -39,6 +42,8 @@ namespace OnlineBankingAppService
             };
 
             bankingdata.AddLoan(loan);
+            datasev.Add(loan);
+            DataJson.Add(loan);
 
             return loan;
         }

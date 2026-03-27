@@ -7,7 +7,7 @@ using OnlineBankingModels;
 
 namespace OnlineBankingDataService
 {
-    public class BankingData
+    public class InMemoryData
     {
         public List<BankingModel> banking = new List<BankingModel>();
 
@@ -15,7 +15,7 @@ namespace OnlineBankingDataService
         {
            banking.Add(loan);
         }
-
+     
         public List<BankingModel> GetLoans()
         {
             return banking;

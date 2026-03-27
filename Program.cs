@@ -18,10 +18,10 @@ namespace OnlineBanking
 
                 Console.WriteLine("Maximum Loan Amount: Php 100,000");
                 Console.WriteLine("Minimum Loan Amount: Php 20,000");
-                Console.WriteLine("Flexible payment terms from 6-60 months");
+                Console.WriteLine("Flexible payment terms from 1-25 Years");
 
                 Console.Write("Loan Amount: ");
-                double loanInput = Convert.ToDouble(Console.ReadLine());
+                int loanInput = Convert.ToInt32(Console.ReadLine());
 
                 Console.WriteLine("The Interest is 1.3%");
 
@@ -41,9 +41,11 @@ namespace OnlineBanking
                     Console.WriteLine("Total Loan Amount: " + loan.LoanAmount);
                     Console.WriteLine("Loan Period: " + loan.LoanPeriod + " Years");
                     Console.WriteLine("Interest Rate: 1.3%");
-                    Console.WriteLine("Monthly Payment: " + loan.MonthlyPayment);
+                    Console.WriteLine("Monthly Payment: Php " + loan.MonthlyPayment);
+                    Console.WriteLine("---------------------------------------");
+                    Console.WriteLine("Loan Successfully!");
                 }
-
+              
                 Console.Write("Do you want to Loan? y/n: ");
                 choice = Convert.ToChar(Console.ReadLine());
             }
