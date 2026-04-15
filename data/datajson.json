@@ -1,0 +1,26 @@
+[
+  {
+    "LoanId": "0a0c0b42-3f36-4889-8d61-28b4edba033c",
+    "LoanAmount": 10000,
+    "LoanPeriod": 3,
+    "MonthlyPayment": 349.46
+  },
+  {
+    "LoanId": "939b2134-6e71-4230-b5df-bdac07e0ab5e",
+    "LoanAmount": 20000,
+    "LoanPeriod": 10,
+    "MonthlyPayment": 166.78
+  },
+  {
+    "LoanId": "cd3bf89a-5953-4755-9588-b7588acc8295",
+    "LoanAmount": 100000,
+    "LoanPeriod": 19,
+    "MonthlyPayment": 439.14
+  },
+  {
+    "LoanId": "6ff5a33e-0ab1-44c2-80f0-b5673b51b11b",
+    "LoanAmount": 20000,
+    "LoanPeriod": 10,
+    "MonthlyPayment": 166.78
+  }
+]

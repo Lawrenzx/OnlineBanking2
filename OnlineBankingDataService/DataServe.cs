@@ -19,6 +19,15 @@ namespace OnlineBankingDataService
         {
             info_Loan.Add(bankingmodel);
         }
+        public void DeleteLoans(Guid id) {
+            info_Loan.DeleteLoans(id);
+        }
+        public void EditLoans(BankingModel bm) {
+            info_Loan.EditLoans(bm);
+        }
+        public BankingModel? ReceiptLoans(Guid id) {
+           return  info_Loan.ReceiptLoans(id);
+        }
         public List<BankingModel> GetLoans()
         {
             return info_Loan.GetLoans();

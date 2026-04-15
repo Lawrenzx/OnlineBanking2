@@ -63,18 +63,48 @@ namespace OnlineBankingDataService
 
             while (reader.Read())
             {
-                BankingModel bmw = new BankingModel();
-                {
+                    BankingModel bmw = new BankingModel();
                     bmw.LoanId = reader.GetGuid(0);
                     bmw.LoanAmount = Convert.ToInt32(reader["LoanAmount"]);
                     bmw.LoanPeriod = Convert.ToInt32(reader["LoanPeriod"]);
                     bmw.MonthlyPayment = Convert.ToDouble(reader["MonthlyPayment"]);
-                };
+                loans.Add(bmw);
             }
 
             sqlConnection.Close();
 
             return loans;
-        }   
+        }
+        public void DeleteLoans(Guid id)
+        {
+            sqlConnection.Open();
+            var updateStatement = $"DELETE FROM tbl_linfo WHERE LoanId = @LoanId";
+            SqlCommand updateCommand = new SqlCommand(updateStatement, sqlConnection);
+            updateCommand.Parameters.AddWithValue("@LoanId", id);
+
+
+            updateCommand.ExecuteNonQuery();
+
+            sqlConnection.Close();
+        }
+        public void EditLoans(BankingModel bm)
+        {
+            sqlConnection.Open();
+
+            var updateStatement = $"UPDATE tbl_linfo SET LoanId = @LoanId, LoanPeriod = @LoanPeriod WHERE LoanId = @LoanId";
+
+            SqlCommand updateCommand = new SqlCommand(updateStatement, sqlConnection);
+            updateCommand.Parameters.AddWithValue("@LoanId", bm.LoanId);
+            updateCommand.Parameters.AddWithValue("@LoanPeriod", bm.LoanPeriod);
+
+
+            updateCommand.ExecuteNonQuery();
+
+            sqlConnection.Close();
+        }
+        public BankingModel? ReceiptLoans(Guid id)
+        {
+            return GetLoans().FirstOrDefault(t => t.LoanId == id);
+        }
     }
 }

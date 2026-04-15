@@ -41,12 +41,54 @@ namespace OnlineBankingAppService
                 MonthlyPayment = payment
             };
 
-            bankingdata.AddLoan(loan);
+           
             datasev.Add(loan);
             DataJson.Add(loan);
+            bankingdata.AddLoan(loan);
 
             return loan;
         }
+        public List<BankingModel> GetLoans()
+        {
+            return datasev.GetLoans();
+           
+        }
+        public void DeleteLoans(Guid id)
+        {
+            var loanz = datasev.GetLoans();
+            var loz = loanz.FirstOrDefault(t => t.LoanId == id);
+
+            if (loz != null)
+            {
+                loanz.Remove(loz);
+                datasev.DeleteLoans(id);
+                //taskjsondata.DeleteTask(id);
+                //taskinmemorydata.UpdateTask(task);
+            }
+
+        }
+        public void EditLoans(Guid id, int newP)
+        {
+            var loanz = datasev.GetLoans();
+            var loz = loanz.FirstOrDefault(t => t.LoanId == id);
+
+            if (loz != null)
+            {
+                loz.LoanPeriod = newP;
+                datasev.EditLoans(loz);
+                //taskjsondata.UpdateTask(task);
+                //taskinmemorydata.UpdateTask(task);
+
+            }
+        }
+        public BankingModel? ReceiptLoans(Guid id)
+        {
+            return datasev.ReceiptLoans(id);
+
+            //return taskjsondata.GetTasks();
+            //return taskinmemorydata.GetTasks();
+        }
+
     }
 }
       

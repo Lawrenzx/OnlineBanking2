@@ -63,6 +63,32 @@ namespace OnlineBankingDataService
             RetrieveDataFromJsonFile();
             return bmw;
         }
-      
+        public void DeleteLoans(Guid id)
+        {
+            RetrieveDataFromJsonFile();
+
+            var existing = bmw.FirstOrDefault(x => x.LoanId == id);
+            if (existing != null)
+            {
+                bmw.Remove(existing);
+            }
+            SaveDataToJsonFile();
+        }
+        public void EditLoans(BankingModel bm)
+        {
+            RetrieveDataFromJsonFile();
+
+            var existing = bmw.FirstOrDefault(x => x.LoanId == bm.LoanId);
+            if (existing != null)
+            {
+                existing.LoanPeriod = bm.LoanPeriod;
+            }
+            SaveDataToJsonFile();
+        }
+        public BankingModel? ReceiptLoans(Guid id)
+        {
+            RetrieveDataFromJsonFile();
+            return bmw.FirstOrDefault(t => t.LoanId == id);
+        }
     }
 }
